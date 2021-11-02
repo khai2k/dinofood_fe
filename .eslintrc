@@ -1,0 +1,46 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:compat/recommended"
+  ],
+  "settings": {
+    "polyfills": [
+      "URL",
+      "fetch",
+      "Promise",
+      "FormData",
+      "location.hostname"
+    ]
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "rules": {
+    "react/jsx-closing-bracket-location": "warn",
+    "react/jsx-tag-spacing": "off",
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "react/prop-types": "off",
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
+    "no-console": "off",
+    "camelcase": "warn",
+    "indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  }
+}

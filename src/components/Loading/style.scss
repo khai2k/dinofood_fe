@@ -1,0 +1,146 @@
+/** Mixin */
+@mixin transform($transform...) {
+  -webkit-transform: $transform; /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: $transform; /* IE 9 */
+          transform: $transform; /* Firefox 16+, IE 10+, Opera */
+}
+
+@mixin animation-name($animation-name...) {
+  -webkit-animation-name: $animation-name;
+          animation-name: $animation-name;
+}
+
+@mixin animation-delay($animation-delay...) {
+  -webkit-animation-delay: $animation-delay;
+          animation-delay: $animation-delay;
+}
+
+@mixin animation-duration($animation-duration...) {
+  -webkit-animation-duration: $animation-duration;
+          animation-duration: $animation-duration;
+}
+
+@mixin animation-iteration-count($animation-iteration-count...) {
+  -webkit-animation-iteration-count: $animation-iteration-count;
+          animation-iteration-count: $animation-iteration-count;
+}
+
+@mixin animation-timing-function($animation-timing-function...) {
+  -webkit-animation-timing-function: $animation-timing-function;
+          animation-timing-function: $animation-timing-function;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/* Animation */
+@include keyframes(scaleDot) {
+  0% {
+    @include transform(scale(1));
+    opacity: 1;
+  }
+  50% {
+    @include transform(scale(2.5));
+    opacity: .3;
+  }
+  70% {
+    @include transform(scale(1));
+    opacity: 1;
+  }
+}
+
+/* Absolute Center scaleDot */
+.app-loading {
+  position: fixed;
+  z-index: 9999;
+  margin: auto !important;
+  height: 2em;
+  width: 2em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Transparent Overlay */
+  &:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    position: fixed;
+    // background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* :not(:required) hides these rules from IE9 and below */
+  &:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    border: 0;
+    text-shadow: none;
+    background-color: transparent;
+  }
+
+  &:not(:required) {
+    .loading-content {
+      width: 200px;
+      text-align: center;
+      @include transform(translate(-50%, 0));
+    }
+    span {
+      display: inline-block;
+      margin: 0 2px;
+      padding: 6px;
+      background: red;
+      border-radius: 100%;
+
+      @include animation-name(scaleDot);
+      @include animation-duration(1250ms);
+      @include animation-iteration-count(infinite);
+      @include animation-timing-function(linear);
+
+      &:nth-child(1) {
+        // background-color: #5bbbe0;
+        background-color: #703fbb;
+      }
+      &:nth-child(2) {
+        // background-color: #26afe4;
+        background-color: #703fbb;
+        @include animation-delay(.15s);
+      }
+      &:nth-child(3) {
+        // background-color: #0074a0;
+        background-color: #703fbb;
+        @include animation-delay(.3s);
+      }
+      &:nth-child(4) {
+        // background-color: #b90000;
+        background-color: #703fbb;
+        @include animation-delay(.45s);
+      }
+      &:nth-child(5) {
+        // background-color: #ff3d3d;
+        background-color: #703fbb;
+        @include animation-delay(.6s);
+      }
+    }
+  }
+}

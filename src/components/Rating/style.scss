@@ -1,0 +1,17 @@
+
+.comp-rating {
+  margin-bottom: 4px;
+  font-size: 16px;
+  .stars {
+    font-size: 16px;
+    color: #ffc107;
+    display: inline-block;
+  }
+  .number-rating {
+    background-color: #ffc107;
+    padding: 0 5px;
+    border-radius: 4px;
+    color: #fff;
+    margin: 0 5px;
+  }
+}
