@@ -3,13 +3,13 @@ import 'firebase/database'
 import 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: process.env.G_API_KEY,
-  authDomain: 'dinofood.firebaseapp.com',
-  databaseURL: 'https://dinofood.firebaseio.com',
-  projectId: 'dinofood',
-  storageBucket: 'dinofood.appspot.com',
-  messagingSenderId: '1064557322091',
-  appId: '1:1064557322091:web:c792c3684d2ce823bbf62e'
+  apiKey: 'AIzaSyDEvjxEDzTb5G8Ik_siY7jM8aqyJmXzl98',
+  authDomain: 'dino-food-f52c4.firebaseapp.com',
+  projectId: 'dino-food-f52c4',
+  storageBucket: 'dino-food-f52c4.appspot.com',
+  messagingSenderId: '570122616174',
+  appId: '1:570122616174:web:89b5fccdcd8691740e157f',
+  measurementId: 'G-55Q2SVQ694'
 }
 
 // Initialize Firebase
